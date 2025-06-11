@@ -77,7 +77,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`z-[10] flex h-14 w-full items-center justify-center border-b-[1px] border-b-richblack-700 bg-richblack-900 text-white translate-y-0 transition-all ${showNavbar}`}
+      className={`z-[1000] flex h-14 w-full items-center justify-center border-b-[1px] border-b-richblack-700 bg-richblack-900 text-white translate-y-0 transition-all ${showNavbar}`}
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         <Link to="/" aria-label="Home">
@@ -129,7 +129,7 @@ const Navbar = () => {
                   <p>{link.title}</p>
                   <MdKeyboardArrowDown />
                   <div
-                    className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] 
+                    className="invisible absolute left-[50%] top-[50%] z-[1001] flex w-[200px] translate-x-[-50%] translate-y-[3em] 
                     flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible 
                     group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]"
                   >
@@ -182,23 +182,29 @@ const Navbar = () => {
           </li>
 
           {/* Services Dropdown */}
-          <li className="relative group flex cursor-pointer items-center gap-1 rounded-xl p-1 px-3 text-richblack-25 hover:bg-richblack-50">
-            <span>Services</span>
-            <MdKeyboardArrowDown />
-            <div className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] -translate-x-1/2 translate-y-[3em] flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[250px]">
-              <div className="absolute left-[50%] top-0 z-[100] h-6 w-6 -translate-x-1/2 -translate-y-1/2 rotate-45 select-none rounded bg-richblack-5"></div>
-              <Link
-                to="/services/institute"
-                className="rounded-lg bg-transparent py-2 px-3 hover:bg-richblack-50"
-              >
-                For Institute
-              </Link>
-              <Link
-                to="/services/student"
-                className="rounded-lg bg-transparent py-2 px-3 hover:bg-richblack-50"
-              >
-                For Student
-              </Link>
+          <li>
+            <div className={`group relative flex cursor-pointer items-center gap-1 ${
+              matchRoute("/services/institute") || matchRoute("/services/student")
+                ? "bg-yellow-25 text-black rounded-xl p-1 px-3"
+                : "text-richblack-25 rounded-xl p-1 px-3"
+            }`}>
+              <p>Services</p>
+              <MdKeyboardArrowDown />
+              <div className="invisible absolute left-[50%] top-[50%] z-[1001] flex w-[200px] -translate-x-1/2 translate-y-[3em] flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[250px]">
+                <div className="absolute left-[50%] top-0 z-[100] h-6 w-6 -translate-x-1/2 -translate-y-1/2 rotate-45 select-none rounded bg-richblack-5"></div>
+                <Link
+                  to="/services/institute"
+                  className="rounded-lg bg-transparent py-2 px-3 hover:bg-richblack-50"
+                >
+                  For Institute
+                </Link>
+                <Link
+                  to="/services/student"
+                  className="rounded-lg bg-transparent py-2 px-3 hover:bg-richblack-50"
+                >
+                  For Student
+                </Link>
+              </div>
             </div>
           </li>
 

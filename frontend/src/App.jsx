@@ -17,6 +17,7 @@ import PageNotFound from "./pages/PageNotFound";
 import CourseDetails from './pages/CourseDetails';
 import Catalog from './pages/Catalog';
 import InstituteService from "./pages/InstituteService";
+import StudentService from "./pages/StudentService";
 import FreeCourses from './components/core/Catalog/FreeCourses';
 
 import Navbar from "./components/common/Navbar"
@@ -98,6 +99,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/services/institute" element={<InstituteService />} />
+        <Route path="/services/student" element={<StudentService />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />
         <Route path="free-courses" element={<FreeCourses />} />
         <Route path="courses/:courseId" element={<CourseDetails />} />
