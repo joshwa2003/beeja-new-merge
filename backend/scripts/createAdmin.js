@@ -3,8 +3,8 @@ const User = require('../models/user');
 const Profile = require('../models/profile');
 const bcrypt = require('bcrypt');
 
-// MongoDB container connection
-const MONGO_URI = 'mongodb://172.17.0.3:27017/learnhub';
+// MongoDB connection
+const MONGO_URI = 'mongodb://localhost:27017/learnhub';
 
 const createAdminUser = async () => {
   try {

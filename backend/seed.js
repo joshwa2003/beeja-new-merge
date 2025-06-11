@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-const Category = require('../models/category');
-const Course = require('../models/course');
-const User = require('../models/user');
+const Category = require('./models/category');
+const Course = require('./models/course');
+const User = require('./models/user');
+const Profile = require('./models/profile');
 
 // MongoDB connection
 const MONGO_URI = "mongodb://localhost:27017/learnhub";
@@ -30,14 +31,22 @@ const categories = [
     }
 ];
 
-// Sample instructor data
+// Sample instructor profile data
+const instructorProfileData = {
+    about: "Experienced web development instructor with 5+ years of teaching experience",
+    contactNumber: "+1234567890",
+    gender: "Male",
+    dateOfBirth: "1985-06-15"
+};
+
+// Sample instructor data (will be updated with profile reference)
 const instructorData = {
     firstName: "John",
     lastName: "Doe",
     email: "john.instructor@example.com",
     password: "instructor123",
     accountType: "Instructor",
-    additionalDetails: "Experienced web development instructor"
+    image: "https://example.com/instructor-profile.jpg"
 };
 
 // Sample courses data
@@ -95,10 +104,19 @@ const seedDatabase = async () => {
         // Clear existing data
         await Category.deleteMany({});
         await Course.deleteMany({});
-        console.log("Cleared existing categories and courses");
+        await User.deleteMany({});
+        await Profile.deleteMany({});
+        console.log("Cleared existing categories, courses, users, and profiles");
 
-        // Create instructor
-        const instructor = await User.create(instructorData);
+        // Create instructor profile first
+        const instructorProfile = await Profile.create(instructorProfileData);
+        console.log("Created instructor profile:", instructorProfile);
+
+        // Create instructor with profile reference
+        const instructor = await User.create({
+            ...instructorData,
+            additionalDetails: instructorProfile._id
+        });
         console.log("Created instructor:", instructor);
 
         // Insert categories
