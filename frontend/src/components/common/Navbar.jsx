@@ -41,24 +41,6 @@ const Navbar = () => {
     return matchPath({ path: route }, location.pathname);
   };
 
-  const [showNavbar, setShowNavbar] = useState("top");
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const controlNavbar = useCallback(() => {
-    if (window.scrollY > 200) {
-      if (window.scrollY > lastScrollY) setShowNavbar("hide");
-      else setShowNavbar("show");
-    } else setShowNavbar("top");
-    setLastScrollY(window.scrollY);
-  }, [lastScrollY]);
-
-  useEffect(() => {
-    window.addEventListener("scroll", controlNavbar);
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
-    };
-  }, [controlNavbar]);
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -77,7 +59,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`z-[1000] flex h-14 w-full items-center justify-center border-b-[1px] border-b-richblack-700 bg-richblack-900 text-white translate-y-0 transition-all ${showNavbar}`}
+      className="fixed top-0 z-[1000] flex h-14 w-full items-center justify-center border-b-[1px] border-b-richblack-700 bg-richblack-900/50 backdrop-blur-md text-white"
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         <Link to="/" aria-label="Home">
