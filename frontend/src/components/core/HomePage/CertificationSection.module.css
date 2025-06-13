@@ -162,3 +162,83 @@
     background-position: 200% 0;
   }
 }
+
+/* Marquee Container Styles */
+.marqueeContainer {
+  margin-top: 50px;
+  text-align: center;
+  max-width: 1200px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(22, 28, 36, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 40px;
+}
+
+@media (max-width: 1200px) {
+  .marqueeContainer {
+    max-width: 950px;
+    width: 88%;
+    padding: 18px 35px;
+  }
+}
+
+@media (max-width: 990px) {
+  .marqueeContainer {
+    max-width: 800px;
+    width: 85%;
+    padding: 16px 30px;
+    margin-top: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .marqueeContainer {
+    max-width: 600px;
+    width: 70%;
+    padding: 14px 25px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marqueeContainer {
+    max-width: 400px;
+    width: 65%;
+    padding: 12px 20px;
+    margin-top: 35px;
+  }
+}
+
+.imageWrapper {
+  margin: 0px 30px;
+}
+
+.imageWrapper img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .imageWrapper {
+    margin: 0px 15px;
+  }
+  .imageWrapper img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageWrapper {
+    margin: 0px 10px;
+  }
+  .imageWrapper img {
+    width: 60px;
+    height: 60px;
+  }
+}
