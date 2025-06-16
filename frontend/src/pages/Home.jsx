@@ -16,7 +16,7 @@ import ReviewSlider from '../components/common/ReviewSlider';
 import Course_Slider from '../components/core/Catalog/Course_Slider'
 
 import TeamSlider from '../components/core/HomePage/TeamSlider';
-import CertificationSection from '../components/core/HomePage/CertificationSection';
+import SplitScreen from '../components/core/HomePage/SplitScreen';
 
 import { getCatalogPageData } from '../services/operations/pageAndComponentData';
 
@@ -140,7 +140,7 @@ const Home = () => {
   return (
     <React.Fragment>
       {/* Background with Gradient and Particles */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -176,7 +176,7 @@ const Home = () => {
             Embark on a seamless learning experienced with our state of the art platform. Dive into courses crafted to inspire, challenge, and empower you for success.
           </motion.div>
 
-          <motion.div 
+          <motion.div
             variants={fadeIn('up', 0.3)}
             initial='hidden'
             whileInView={'show'}
@@ -202,14 +202,14 @@ const Home = () => {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           variants={fadeIn('up', 0.2)}
           initial='hidden'
           whileInView={'show'}
           viewport={{ once: false, amount: 0.2 }}
           className='parent-count-container'
         >
-          <motion.div 
+          <motion.div
             variants={scaleUp}
             initial='hidden'
             whileInView={'show'}
@@ -228,7 +228,7 @@ const Home = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             variants={scaleUp}
             initial='hidden'
             whileInView={'show'}
@@ -248,7 +248,7 @@ const Home = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             variants={scaleUp}
             initial='hidden'
             whileInView={'show'}
@@ -316,15 +316,6 @@ const Home = () => {
             />
           </motion.div>
 
-          <motion.div
-            variants={scaleUp}
-            initial='hidden'
-            whileInView={'show'}
-            viewport={{ once: false, amount: 0.2 }}
-          >
-            <CertificationSection />
-          </motion.div>
-
           {/* Team Slider Section */}
           <motion.div
             variants={fadeIn('up', 0.1)}
@@ -345,15 +336,35 @@ const Home = () => {
             <TeamSlider />
           </motion.div>
 
+          <div className="w-full py-20">
+            {/* Section Header */}
+            <motion.div
+              variants={fadeIn('up', 0.1)}
+              initial='hidden'
+              whileInView={'show'}
+              viewport={{ once: false, amount: 0.1 }}
+              className='text-center mb-12'
+            >
+              <h2 className='text-3xl lg:text-4xl font-semibold text-white mb-4'>
+                Our Technology
+                <HighlightText text={" Partner"} />
+              </h2>
+            </motion.div>
+
+            {/* Split Screen Section */}
+            <SplitScreen />
+          </div>
+
+
           {/* Popular Picks */}
-          <motion.div 
+          <motion.div
             variants={fadeIn('up', 0.2)}
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: false, amount: 0.2 }}
             className="mx-auto box-content w-full max-w-maxContentTab px- py-12 lg:max-w-maxContent"
           >
-            <motion.h2 
+            <motion.h2
               variants={fadeIn('right', 0.3)}
               initial='hidden'
               whileInView={'show'}
@@ -379,14 +390,14 @@ const Home = () => {
           </motion.div>
 
           {/* Top Enrollments */}
-          <motion.div 
+          <motion.div
             variants={fadeIn('up', 0.2)}
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: false, amount: 0.2 }}
             className="mx-auto box-content w-full max-w-maxContentTab px- py-12 lg:max-w-maxContent"
           >
-            <motion.h2 
+            <motion.h2
               variants={fadeIn('right', 0.3)}
               initial='hidden'
               whileInView={'show'}
@@ -428,7 +439,7 @@ const Home = () => {
           <div className='homepage_bg h-[310px]'>
             <div className='w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto'>
               <div className='h-[150px]'></div>
-              <motion.div 
+              <motion.div
                 variants={fadeIn('up', 0.2)}
                 initial='hidden'
                 whileInView={'show'}
@@ -459,7 +470,7 @@ const Home = () => {
 
           <div className='mx-auto w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-7'>
             <div className='flex flex-col lg:flex-row gap-5 mb-10 mt-[95px]'>
-              <motion.div 
+              <motion.div
                 variants={fadeIn('right', 0.2)}
                 initial='hidden'
                 whileInView={'show'}
@@ -469,7 +480,7 @@ const Home = () => {
                 Get the Skills you need for a <HighlightText text={"Job that is in demand"} />
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 variants={fadeIn('left', 0.2)}
                 initial='hidden'
                 whileInView={'show'}
@@ -498,7 +509,7 @@ const Home = () => {
             >
               <TimelineSection />
             </motion.div>
-            
+
             <motion.div
               variants={fadeIn('up', 0.2)}
               initial='hidden'
@@ -520,15 +531,15 @@ const Home = () => {
           >
             <InstructorSection />
           </motion.div>
-          
-          <motion.h1 
+
+          <motion.h1
             variants={fadeIn('up', 0.2)}
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: false, amount: 0.2 }}
             className="text-center text-3xl lg:text-4xl font-semibold mt-8 flex justify-center items-center gap-x-3"
           >
-            Reviews from other learners 
+            Reviews from other learners
             <motion.span
               variants={bounce}
               initial='hidden'
@@ -538,7 +549,7 @@ const Home = () => {
               <MdOutlineRateReview className='text-yellow-25' />
             </motion.span>
           </motion.h1>
-          
+
           <motion.div
             variants={fadeIn('up', 0.3)}
             initial='hidden'
